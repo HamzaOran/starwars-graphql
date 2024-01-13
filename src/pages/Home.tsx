@@ -68,13 +68,14 @@ const Home = () => {
           className="p-4 border  border-black text-xl"
         />
       </div>
-
-      <div className="p-6 mx-auto sm:p-0 sm:mt-8 justify-center items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {(filteredPeople || allPeople?.people)
-          ?.slice(0, displayedCount)
-          .map((insan: PeopleType) => (
-            <PeopleContainer key={insan.id} insan={insan} />
-          ))}
+      <div className="flex justify-center items-center">
+        <div className="p-6 mx-auto sm:p-0 sm:mt-8 gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {(filteredPeople || allPeople?.people)
+            ?.slice(0, displayedCount)
+            .map((insan: PeopleType) => (
+              <PeopleContainer key={insan.id} insan={insan} />
+            ))}
+        </div>
       </div>
 
       {(filteredPeople || allPeople?.people)?.length > displayedCount && (

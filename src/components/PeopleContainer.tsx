@@ -7,11 +7,11 @@ interface PeopleContainerProps {
 
 const PeopleContainer: React.FC<PeopleContainerProps> = ({ insan }) => {
   return (
-    <div className="container mx-28 bg-white text-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:mx-auto ">
+    <div className="container mx-auto xl:mx-auto bg-white text-white gap-16">
+      <div className="grid grid-cols-1 gap-8 lg:mx-auto ">
         <div
           key={insan.id}
-          className="bg-neutral-900 p-3 my-3 rounded-md shadow-md font-semibold"
+          className="bg-neutral-900 p-3 my-3 gap-8 rounded-md shadow-md font-semibold"
           style={{ width: '300px' }}
         >
           <h1 className="text-3xl font-bold mb-5">{insan.name}</h1>
