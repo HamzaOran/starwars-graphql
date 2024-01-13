@@ -3,6 +3,7 @@ import useAllPeople from '../lib/graphql/hooks/useAllPeople';
 import { PeopleType } from '../types';
 import PeopleContainer from '../components/PeopleContainer';
 import * as XLSX from 'xlsx';
+import { RiFileExcel2Line } from 'react-icons/ri';
 
 const Home = () => {
   const { data, loading, error } = useAllPeople();
@@ -106,7 +107,6 @@ const Home = () => {
       {filteredPeople && (
         <div className=" flex flex-col justify-center items-center mt-4 overflow-x-auto">
           <div className="flex flex-row justify-center items-center gap-3 mb-4">
-            <h2 className="text-4xl font-bold">Excel Table</h2>
             <button onClick={handleDownload}>
               Download
               <svg
@@ -124,37 +124,10 @@ const Home = () => {
                 />
               </svg>
             </button>
+            <h2 className="text-4xl font-bold">
+              <RiFileExcel2Line />
+            </h2>
           </div>
-          <table className="min-w-full bg-white border border-gray-300 mb-8">
-            <thead>
-              <tr className="py-2 px-4 border-b">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Birth Year</th>
-                <th>Eye Color</th>
-                <th>Hair Color</th>
-                <th>Skin Color</th>
-                <th>Height</th>
-                <th>Mass</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredPeople.map((insan: PeopleType) => (
-                <tr key={insan.id} className="py-2 px-4 border-b">
-                  <td>{insan.id || '-'}</td>
-                  <td>{insan.name || '-'}</td>
-                  <td>{insan.gender || '-'}</td>
-                  <td>{insan.birthYear || '-'}</td>
-                  <td>{insan.eyeColor || '-'}</td>
-                  <td>{insan.hairColor || '-'}</td>
-                  <td>{insan.skinColor || '-'}</td>
-                  <td>{insan.height || '-'}</td>
-                  <td>{insan.mass || '-'}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       )}
     </div>
